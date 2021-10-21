@@ -45,6 +45,7 @@
     }
   }
   window.addEventListener('DOMContentLoaded', function(){
-    new Fizzbuzz(1,100)
+    var one_to_hundred = new Fizzbuzz(1,100)
+    var one_to_thirty = new Fizzbuzz(1,30)
   })
 })
