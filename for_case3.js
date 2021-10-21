@@ -44,8 +44,26 @@
       console.log(t)
     }
   }
+
+  // resize
+  var resizeTimer = false
+  var screenW = 0
+  var resizeFunc = function(){
+    if(resizeTimer !== false){
+      clearTimeout(resizeTimer)
+    }
+    resizeTimer = setTimeout(function(){
+      if(screenW === window.innerWidth) return
+      screenW = window.innerWidth
+      console.log('resize fire')
+    },200)
+  }
+
   window.addEventListener('DOMContentLoaded', function(){
     var one_to_hundred = new Fizzbuzz(1,100)
     var one_to_thirty = new Fizzbuzz(1,30)
+  })
+  window.addEventListener('resize', function(){
+    resizeFunc()
   })
 })

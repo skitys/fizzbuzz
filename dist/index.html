@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sample_page</title>
+    <meta name="title" content="sample_page">
+    <meta name="description" content="sample_page description">
+    <meta name="keywords" content="sample_page keywords">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <main>
+      <div>
+        <h1>h1タイトル</h1>
+      </div>
+    </main>
+    <script>
+    (function(){
+      var Fizzbuzz = function(s,f){
+        if(!(this instanceof Fizzbuzz)){
+          return new Fizzbuzz(s,f)
+        }
+        var _ = this
+        _.joken = {
+          // 1から100まで
+          start: s,
+          end : f
+        }
+        _.text = {}
+        _.init()
+        _.calc(_.joken)
+      }
+      Fizzbuzz.prototype = {
+        init: function(){
+          var _ = this
+          _.text = {
+            fz:'Fizz',
+            bz:'Buzz',
+            fzbz:'FizzBuzz'
+          } 
+          console.log(_.text)
+        },
+        calc: function(o){
+          var _ = this,
+          s = o.start,
+          f = o.end,
+          t = _.text,
+          answer = 0
+          for(var i = s; i <= f; i++){
+            answer =
+            n % 15 === 0? t.fz:
+            n % 3 === 0? t.bz:
+            n % 5 === 0? t.fzbz:
+            i;
+            _.show(answer)
+          }
+        },
+        show: function(t){
+          // alertなど随時書き換える
+          console.log(t)
+        }
+      }
+
+      // resize
+      var resizeTimer = false
+      var screenW = 0
+      var resizeFunc = function(){
+        if(resizeTimer !== false){
+          clearTimeout(resizeTimer)
+        }
+        resizeTimer = setTimeout(function(){
+          if(screenW === window.innerWidth) return
+          screenW = window.innerWidth
+          console.log('resize fire')
+        },200)
+      }
+
+      window.addEventListener('DOMContentLoaded', function(){
+        var one_to_hundred = new Fizzbuzz(1,100)
+        var one_to_thirty = new Fizzbuzz(1,30)
+      })
+      window.addEventListener('resize', function(){
+        resizeFunc()
+      })
+    })
+    </script>
+  </body>
+</html>
