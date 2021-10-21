@@ -4,7 +4,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>sample_page</title>
     <meta name="title" content="sample_page">
@@ -15,8 +15,9 @@
   <body>
     <main>
       <div>
-        <h1>h1タイトル</h1>
+        <h1>FizzBuzz</h1>
       </div>
+      <p>３で割り切れる数でFIZZ、５で割り切れる数でBUZZ、３でも５でも割り切れる数でFIZZBUZZとする。</p>
     </main>
     <script>
     (function(){
@@ -42,7 +43,7 @@
             bz:'Buzz',
             fzbz:'FizzBuzz'
           } 
-          console.log(_.text)
+          //console.log(_.text)
         },
         calc: function(o){
           var _ = this,
@@ -52,14 +53,15 @@
           answer = 0
           for(var i = s; i <= f; i++){
             answer =
-            n % 15 === 0? t.fz:
-            n % 3 === 0? t.bz:
-            n % 5 === 0? t.fzbz:
+            i % 15 === 0? t.fzbz:
+            i % 3 === 0? t.fz:
+            i % 5 === 0? t.bz:
             i;
             _.show(answer)
           }
         },
         show: function(t){
+          var _ = this
           // alertなど随時書き換える
           console.log(t)
         }
@@ -80,13 +82,13 @@
       }
 
       window.addEventListener('DOMContentLoaded', function(){
-        var one_to_hundred = new Fizzbuzz(1,100)
+        //var one_to_hundred = new Fizzbuzz(1,100)
         var one_to_thirty = new Fizzbuzz(1,30)
       })
       window.addEventListener('resize', function(){
         resizeFunc()
       })
-    })
+    })()
     </script>
   </body>
 </html>
