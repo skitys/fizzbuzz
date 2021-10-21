@@ -1,3 +1,4 @@
+// メモリ食いすぎのため没
 var Calc = function(num){
     if(!(this instanceof Calc)){
         return new Calc();
