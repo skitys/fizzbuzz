@@ -1,0 +1,19 @@
+{
+  "name": "fizzbuzz",
+  "version": "1.0.0",
+  "description": "fizzbuzz",
+  "main": "for_case1.js",
+  "scripts": {
+    "test": "tset"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skitys/fizzbuzz.git"
+  },
+  "author": "sakai tsuyoshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skitys/fizzbuzz/issues"
+  },
+  "homepage": "https://github.com/skitys/fizzbuzz#readme"
+}
