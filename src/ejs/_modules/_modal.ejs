@@ -1,0 +1,52 @@
+<%# js使用クラス .p-input, .p-modal_body, .p-label-wrap, .p-label, .p-label_ttl %>
+<% const aryGyoshu = modal_data.aryGyoshu %>
+<% const aryShokushu = modal_data.aryShokushu %>
+<div id="js-localModal" class="p-modal">
+  <div class="p-modal_outerWrapper">
+    <div class="p-modal_innerWrapper">
+      <div class="p-modal_container">
+        <div class="p-modal_content">
+          <div class="p-modal_body">
+            <%# 業種 %>
+            <div class="p-modal_inner" data-modal-id="industry">
+              <p class="p-modal_ttl"><span class="inner">業種を選択</span></p>
+              <% for (var i = 0; i < aryGyoshu.length; i++) { %>
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu<%- i %>" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl"><%- aryGyoshu[i][0] %></span><%# jsで上書かれる %>
+                      <span class="p-label_txt <%- aryGyoshu[i][3] === true ? '-red' : '' %>"><%- aryGyoshu[i][1] %></span>
+                    </span>
+                  </label>
+                </div>
+              <% } %>
+            </div>
+​
+            <%# 職種 %>
+            <div class="p-modal_inner" data-modal-id="job">
+              <p class="p-modal_ttl"><span class="inner">職種を選択</span></p>
+              <% for (var i = 0; i < aryShokushu.length; i++) { %>
+                <div class="p-label-wrap">
+                  <label for="shokushu<%- i %>" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl"><%- aryShokushu[i][0] %></span><%# js上書かれる %>
+                      <span class="p-label_txt <%- aryShokushu[i][3] === true ? '-red' : '' %>"><%- aryShokushu[i][1] %></span>
+                    </span>
+                  </label>
+                </div>
+              <% } %>
+            </div>
+          </div><!-- /.modal-body -->
+          <button type="button" class="p-modal_close">
+            <span>close</span>
+          </button>
+          <button type="button" class="p-modal_closeBtn">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-modal-overlay"></div>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <%- include('./_modules/_data'); %>
+<%- include('./_modules/_modal_data'); %>
 <% const meta = getData() %>
+<% const modal_data = getModalData() %>
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
@@ -10,15 +12,16 @@
     <meta name="title" content="<%- meta.title %>">
     <meta name="description" content="<%- meta.description %>">
     <meta name="keywords" content="<%- meta.keywords %>">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
     <main>
       <div>
         <h1><%= meta.h1%></h1>
+        <p>３で割り切れる数でFIZZ、５で割り切れる数でBUZZ、３でも５でも割り切れる数でFIZZBUZZとする。consoleに出力</p>
       </div>
-      <p>３で割り切れる数でFIZZ、５で割り切れる数でBUZZ、３でも５でも割り切れる数でFIZZBUZZとする。consoleに出力</p>
     </main>
+    <%- include('./_modules/_modal',{modal_data: modal_data}); %>
     <script>
     (function(){
       var Fizzbuzz = function(s,f){

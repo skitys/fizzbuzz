@@ -4,7 +4,7 @@ const ejs = require('gulp-ejs')
 const rename = require('gulp-rename')
 const plumber = require('gulp-plumber')
 const notify = require('gulp-notify')
-const g_sass = require('gulp-sass')(require('sass'));
+const d_sass = require('gulp-dart-sass');
 const autoprefixer = require('gulp-autoprefixer')
 const sourcemap = require('gulp-sourcemaps')
 /* common */
@@ -27,13 +27,13 @@ gulp.task('ejs', ()=>{
 gulp.task('style', (done)=>{
   gulp.src(path.src + '/sass/**/' + '*.scss')
   .pipe(sourcemap.init({ largeFile: true }))
-  .pipe(g_sass({
+  .pipe(d_sass({
     outputStyle: 'expanded'
   }))
   .pipe(autoprefixer({
     cascade: false
   }))
-  .pipe(gulp.dest(path.dist))
+  .pipe(gulp.dest(path.dist + '/css'))
   .pipe(sourcemap.write('_maps'))
   .pipe(gulp.dest(path.dist))
   done();
