@@ -18,10 +18,18 @@
   "homepage": "https://github.com/skitys/fizzbuzz#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-data": "^1.3.1",
     "gulp-ejs": "^5.1.0",
     "gulp-notify": "^4.0.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-rename": "^2.0.0"
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-webserver": "^0.9.1",
+    "sass": "^1.43.3"
+  },
+  "dependencies": {
+    "gulp-dart-sass": "^1.0.2"
   }
 }

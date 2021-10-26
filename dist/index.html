@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
 
+
+
+
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
@@ -10,15 +13,506 @@
     <meta name="title" content="sample_page">
     <meta name="description" content="sample_page description">
     <meta name="keywords" content="sample_page keywords">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
     <main>
       <div>
         <h1>FizzBuzz</h1>
+        <p>３で割り切れる数でFIZZ、５で割り切れる数でBUZZ、３でも５でも割り切れる数でFIZZBUZZとする。consoleに出力</p>
       </div>
-      <p>３で割り切れる数でFIZZ、５で割り切れる数でBUZZ、３でも５でも割り切れる数でFIZZBUZZとする。</p>
+      <!-- form parts -->
+      <div>
+        <h2>フォーム用パーツ</h2>
+        <p>業種を選択してください</p>
+        <select name="industry" class="form-select" data-input="industry">
+          <option value="">選択してください</option>
+          
+          
+          <option value="建設 / 建築 / 土木">建設 / 建築 / 土木</option>
+          
+          <option value="製造業">製造業</option>
+          
+          <option value="情報通信業">情報通信業</option>
+          
+          <option value="運輸業">運輸業</option>
+          
+          <option value="卸売 / 小売">卸売 / 小売</option>
+          
+          <option value="電気 / ガス / 水道">電気 / ガス / 水道</option>
+          
+          <option value="不動産">不動産</option>
+          
+          <option value="飲食 / 宿泊">飲食 / 宿泊</option>
+          
+          <option value="金融 / 保険">金融 / 保険</option>
+          
+          <option value="公務員">公務員</option>
+          
+          <option value="医療 / 介護 / 福祉">医療 / 介護 / 福祉</option>
+          
+          <option value="農林 / 鉱業 / 漁業">農林 / 鉱業 / 漁業</option>
+          
+          <option value="専門サービス">専門サービス</option>
+          
+          <option value="学術 / 研究">学術 / 研究</option>
+          
+          <option value="生活関連サービス / 娯楽">生活関連サービス / 娯楽</option>
+          
+          <option value="教育 / 学習支援">教育 / 学習支援</option>
+          
+          <option value="その他サービス業">その他サービス業</option>
+          
+          <option value="その他">その他</option>
+          
+        </select>
+        <div class="form-select js-dummy-select">選択してください</div>
+      </div>
+      <div>
+        <p>職種を選択してください</p>
+        <select name="job" class="form-select" data-input="job">
+          <option value="">選択してください</option>
+          
+          
+          <option value="管理職">管理職</option>
+          
+          <option value="事務 / 経理 / スタッフ">事務 / 経理 / スタッフ</option>
+          
+          <option value="企画/マーケティング">企画/マーケティング</option>
+          
+          <option value="営業">営業</option>
+          
+          <option value="看護/介護/福祉">看護/介護/福祉</option>
+          
+          <option value="作業員/工員">作業員/工員</option>
+          
+          <option value="建設等専門技術職">建設等専門技術職</option>
+          
+          <option value="クリエイティブ / ITエンジニア">クリエイティブ / ITエンジニア</option>
+          
+          <option value="技術 / 開発職">技術 / 開発職</option>
+          
+          <option value="教師 / 保育士 / 教育">教師 / 保育士 / 教育</option>
+          
+          <option value="調理師 / 薬剤師">調理師 / 薬剤師</option>
+          
+          <option value="警ら / 消防 / 自衛隊">警ら / 消防 / 自衛隊</option>
+          
+          <option value="ドライバー">ドライバー</option>
+          
+          <option value="飲食 / 小売店 / 接客">飲食 / 小売店 / 接客</option>
+          
+          <option value="医師 / 弁護士 / 会計士 / 税理士">医師 / 弁護士 / 会計士 / 税理士</option>
+          
+          <option value="社労士 / 弁理士  /その他士業">社労士 / 弁理士  /その他士業</option>
+          
+          <option value="その他">その他</option>
+          
+        </select>
+        <div class="form-select js-dummy-select">選択してください</div>
+      </div>
+      <!-- end form parts -->
     </main>
+    
+
+
+<div id="js-localModal" class="p-modal">
+  <div class="p-modal_outerWrapper">
+    <div class="p-modal_innerWrapper">
+      <div class="p-modal_container">
+        <div class="p-modal_content">
+          <div class="p-modal_body">
+            
+            <div class="p-modal_inner" data-modal-id="industry">
+              <p class="p-modal_ttl"><span class="inner">業種を選択</span></p>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu0" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">建設 / 建築 / 土木</span>
+                      <span class="p-label_txt ">建築 / 土木 / 塗装 / 電気工事</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu1" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">製造業</span>
+                      <span class="p-label_txt ">食料品製造 / 繊維 / 化学 / 鉄鋼 / 電子部品</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu2" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">情報通信業</span>
+                      <span class="p-label_txt ">電気通信 / 放送 / 情報処理 / ソフトウェア / インターネット付随サービス / 映像 / 新聞 / 出版 / 広告</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu3" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">運輸業</span>
+                      <span class="p-label_txt ">鉄道 / 運送 / 海運 / 航空 / 倉庫</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu4" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">卸売 / 小売</span>
+                      <span class="p-label_txt ">衣服 / 飲食料 / 機械器具 / 建築材料 / 百貨店 / スーパー /  その他 卸売/小売</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu5" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">電気 / ガス / 水道</span>
+                      <span class="p-label_txt ">電気 / ガス 上下水道</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu6" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">不動産</span>
+                      <span class="p-label_txt ">建物土地売買 / 不動産賃貸 / 仲介 / 管理</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu7" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">飲食 / 宿泊</span>
+                      <span class="p-label_txt ">レストラン / バー / 喫茶店  /  ホテル</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu8" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">金融 / 保険</span>
+                      <span class="p-label_txt ">銀行 / 証券会社 / 保険 / クレジット</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu9" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">公務員</span>
+                      <span class="p-label_txt ">国家公務 / 地方公務 / その他公務員</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu10" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">医療 / 介護 / 福祉</span>
+                      <span class="p-label_txt ">病院 / 看護 / 療術 / 保健所 / 介護 / 福祉</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu11" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">農林 / 鉱業 / 漁業</span>
+                      <span class="p-label_txt ">農業 / 園芸 / 林業 / 採石 / 漁業 / 養殖</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu12" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">専門サービス</span>
+                      <span class="p-label_txt ">法律 / 会計・税務</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu13" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">学術 / 研究</span>
+                      <span class="p-label_txt ">自然科学 / 人文 / 社会科学 / 芸術</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu14" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">生活関連サービス / 娯楽</span>
+                      <span class="p-label_txt ">理容 / 美容 / 冠婚葬祭 / 映画 / スポーツ施設 / 遊戯場</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu15" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">教育 / 学習支援</span>
+                      <span class="p-label_txt ">学習塾 / 社会教育 / 教養 / 技能</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu16" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">その他サービス業</span>
+                      <span class="p-label_txt ">廃棄物処理 / 機械修理 / 自動車整備 / 警備</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <!-- createElement input -->
+                  <label for="gyoshu17" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">その他</span>
+                      <span class="p-label_txt ">上記に分類できないもの</span>
+                    </span>
+                  </label>
+                </div>
+              
+            </div>
+​
+            
+            <div class="p-modal_inner" data-modal-id="job">
+              <p class="p-modal_ttl"><span class="inner">職種を選択</span></p>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu0" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">管理職</span>
+                      <span class="p-label_txt -red">下記に該当する場合も、管理職の方は<br>こちらを選択してください。</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu1" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">事務 / 経理 / スタッフ</span>
+                      <span class="p-label_txt ">一般事務 / 秘書 / 経理 / 総務 / 法務 / 広報 / 受付</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu2" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">企画/マーケティング</span>
+                      <span class="p-label_txt ">事務企画 / 商品企画 / マーケティング / コンサル / 広告宣伝</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu3" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">営業</span>
+                      <span class="p-label_txt ">法人営業 / 個人営業 / テレマーケター / キャリアカウンセラー / コールセンター</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu4" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">看護/介護/福祉</span>
+                      <span class="p-label_txt ">看護師 / 介護士 / 福祉サービス / 医療サービス関連</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu5" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">作業員/工員</span>
+                      <span class="p-label_txt ">工場作業員 / 建築作業員 / 土木作業員</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu6" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">建設等専門技術職</span>
+                      <span class="p-label_txt ">測量 / 設計 / 施工管理</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu7" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">クリエイティブ / ITエンジニア</span>
+                      <span class="p-label_txt ">デザイン / SE / ネットワーク / インフラ / ゲーム</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu8" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">技術 / 開発職</span>
+                      <span class="p-label_txt ">機械 / 回路 / 生産技術 / 半導体 / 研究 / 実験</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu9" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">教師 / 保育士 / 教育</span>
+                      <span class="p-label_txt ">教師 / 保育 / インストラクター</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu10" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">調理師 / 薬剤師</span>
+                      <span class="p-label_txt ">調理師 / 栄養士 / 薬剤師 / 歯科衛生士</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu11" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">警ら / 消防 / 自衛隊</span>
+                      <span class="p-label_txt ">警察 / 消防士 / 自衛官</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu12" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">ドライバー</span>
+                      <span class="p-label_txt ">タクシー / 運送 / 配達 / バス運転手</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu13" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">飲食 / 小売店 / 接客</span>
+                      <span class="p-label_txt ">飲食 / 小売 / 美容・エステ / 旅行 / ホテル / ブライダル</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu14" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">医師 / 弁護士 / 会計士 / 税理士</span>
+                      <span class="p-label_txt ">医師 / 弁護士 / 会計士 / 税理士</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu15" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">社労士 / 弁理士  /その他士業</span>
+                      <span class="p-label_txt ">社労士 / 弁理士 / 司法書士</span>
+                    </span>
+                  </label>
+                </div>
+              
+                <div class="p-label-wrap">
+                  <label for="shokushu16" class="p-label">
+                    <span class="p-label_cell p-label-ico"></span>
+                    <span class="p-label_cell">
+                      <span class="p-label_ttl">その他</span>
+                      <span class="p-label_txt ">上記に分類できないもの</span>
+                    </span>
+                  </label>
+                </div>
+              
+            </div>
+          </div><!-- /.modal-body -->
+          <button type="button" class="p-modal_close">
+            <span>close</span>
+          </button>
+          <button type="button" class="p-modal_closeBtn">閉じる</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="p-modal-overlay"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script>
     (function(){
       var Fizzbuzz = function(s,f){
@@ -63,7 +557,7 @@
         show: function(t){
           var _ = this
           // alertなど随時書き換える
-          console.log(t)
+          //console.log(t)
         }
       }
 
@@ -89,6 +583,200 @@
         resizeFunc()
       })
     })()
+
+    // use jQuery
+    $(function(){
+      var step2LocalFunc = function(){
+      // modal
+      var LocalModal = function(){
+        if(!(this instanceof LocalModal)){
+          return new LocalModal()
+        }
+        var _ = this
+        _.$body = $('body')
+        _.$modal01 = $('#js-localModal [data-modal-id="industry"]')
+        _.$modal02 = $('#js-localModal [data-modal-id="job"]')
+        _.stateCls = {
+          wrap: 'is-modal-open',
+          content: 'is-modal-current',
+          body: 'is-body-fix'
+        },
+        pageY = ''
+        _.init()
+      }
+      LocalModal.prototype = {
+        init: function(){
+        },
+        open: function(e){
+          var _ = this
+          _.keepPosition()
+          _.switchCnt(e.currentTarget)
+          _.$body.addClass(_.stateCls.wrap)
+          setTimeout(function(){
+            _.$body.addClass(_.stateCls.body)
+          },400)
+        },
+        close: function(){
+          var _ = this
+          _.$body.removeClass(_.stateCls.wrap)
+          _.$body.removeClass(_.stateCls.body)
+          _.$modal01.removeClass(_.stateCls.content)
+          _.$modal02.removeClass(_.stateCls.content)
+          window.scrollTo(0,_.pageY)
+        },
+        switchCnt: function(t){
+          var _ = this,
+          id = $(t).siblings('select').data('input'),
+          $cnt =
+          id == 'industry'? _.$modal01:
+          id == 'job'? _.$modal02:
+          false;
+          $cnt.addClass(_.stateCls.content)
+        },
+        keepPosition: function(){
+          var _ = this
+          _.pageY = window.pageYOffset
+        }
+      }
+      // modal end
+
+      // select 
+      var SelectLabel = function(){
+        if(!(this instanceof SelectLabel)){
+          return new SelectLabel()
+        }
+        var _ = this
+        _.$target = '' // select要素
+        _.init()
+      }
+      SelectLabel.prototype = {
+        init: function(){
+          var _ = this
+        },
+        get: function(e){
+          var _ = this,
+          o = {
+            v: e.currentTarget.value,
+            n: e.currentTarget.name,
+            text: $(e.currentTarget).data('text')
+          }
+          return o
+        },
+        set: function(e){
+          var _ = this,
+          o = _.get(e),
+          v = o.v,
+          n = o.n,
+          text = o.text
+          // form option 指定
+          _.$target.val(v)
+          // validateのため changeを実行
+          _.$target.trigger('change')
+          // js-dummy-selectのtext変更
+          _.changeTxt(text)
+          //debug
+          console.log(_.$target.children("option:selected").val(),_.$target.children("option:selected").text())
+        },
+        getTarget: function(e){
+          var _ = this,
+          d = $(e.currentTarget).siblings('select').data('input')
+          // change用にselect要素の指定
+          _.$target = $(e.currentTarget).siblings('select[data-input="'+ d +'"]')
+        },
+        changeTxt: function(v){
+          var _ = this
+          _.$target.siblings('.js-dummy-select').text(v)
+        }
+      }
+      // select end
+
+      // input
+      var InputInModal = function(id){
+        if(!(this instanceof InputInModal)){
+          return new InputInModal(id)
+        }
+        var _ = this
+        _.id = id
+        _.options = []
+        _.$container = ''
+        _.init()
+        _.creatInput()
+      }
+      InputInModal.prototype = {
+        init: function(){
+          var _ = this
+          var id = _.id
+          var op = ""
+          var ary_elm = $('select[name="'+id+'"] option')
+          $.each(ary_elm, function(index,value){
+            // 選択してください を除外
+            if(value.value.length > 0){
+              op = {}
+              // select option のvalue とinnerTextを格納
+              op.value = value.value
+              op.text = value.text
+              _.options.push(op)
+            }
+          })
+          // debug
+          //console.log(_.options)
+          _.$container =
+          id == 'industry'? s_modal.$modal01:
+          id == 'job'? s_modal.$modal02:
+          false;
+        },
+        creatInput: function(){
+          var _ = this
+          var id = _.id
+          var elm = ""
+          var text = ""
+          var num = _.options.length
+          var _name =
+          id == 'industry'? 'gyoshu':
+          id == 'job'? 'shokushu':
+          false;
+          for (var i = 0; i < num; i++){
+            elm = document.createElement("input")
+            elm.type = "radio"
+            elm.name = _name
+            elm.id = _name + i
+            elm.className = "p-input"
+            elm.value = _.options[i].value
+            text = _.options[i].text
+            elm.setAttribute("data-text",text)
+            // CSSセレクタで input + label 指定中
+            _.$container.find(".p-label-wrap").eq(i).find(".p-label").before(elm)
+            // modal label text変更
+            _.$container.find(".p-label-wrap").eq(i).find(".p-label").find(".p-label_ttl").text(text)
+          }
+        }
+      }
+      //input end
+      var s_modal = new LocalModal()
+      var s_label = new SelectLabel()
+      var input_modal01 = new InputInModal("industry")
+      var input_modal02 = new InputInModal("job")
+      //on click
+      $('.js-dummy-select').on('click', function(e){
+        s_label.getTarget(e)
+        s_modal.open(e)
+      })
+      $('#js-localModal,#js-localModal button').on('click', function(e){
+        s_modal.close()
+      })
+      $('#js-localModal .p-modal_body').on('click', function(e){
+        e.stopPropagation();
+      })
+      //on change
+      $('#js-localModal .p-input').on('change', function(e){
+        s_label.set(e)
+        setTimeout(function(){
+          s_modal.close()
+        },300)
+      })
+      }
+      step2LocalFunc();
+    })
     </script>
   </body>
 </html>
