@@ -1,6 +1,6 @@
 <%# js使用クラス .p-input, .p-modal_body, .p-label-wrap, .p-label, .p-label_ttl %>
-<% const aryGyoshu = modal_data.aryGyoshu %>
-<% const aryShokushu = modal_data.aryShokushu %>
+<% const aryGyoshu = data.aryGyoshu %>
+<% const aryShokushu = data.aryShokushu %>
 <div id="js-localModal" class="p-modal">
   <div class="p-modal_outerWrapper">
     <div class="p-modal_innerWrapper">
@@ -17,7 +17,7 @@
                     <span class="p-label_cell p-label-ico"></span>
                     <span class="p-label_cell">
                       <span class="p-label_ttl"><%- aryGyoshu[i][0] %></span><%# jsで上書かれる %>
-                      <span class="p-label_txt <%- aryGyoshu[i][3] === true ? '-red' : '' %>"><%- aryGyoshu[i][1] %></span>
+                      <span class="p-label_txt <%- aryGyoshu[i][2] === true ? '-red' : '' %>"><%- aryGyoshu[i][1] %></span>
                     </span>
                   </label>
                 </div>
@@ -33,7 +33,7 @@
                     <span class="p-label_cell p-label-ico"></span>
                     <span class="p-label_cell">
                       <span class="p-label_ttl"><%- aryShokushu[i][0] %></span><%# js上書かれる %>
-                      <span class="p-label_txt <%- aryShokushu[i][3] === true ? '-red' : '' %>"><%- aryShokushu[i][1] %></span>
+                      <span class="p-label_txt <%- aryShokushu[i][2] === true ? '-red' : '' %>"><%- aryShokushu[i][1] %></span>
                     </span>
                   </label>
                 </div>

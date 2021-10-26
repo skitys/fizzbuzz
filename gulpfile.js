@@ -7,11 +7,19 @@ const notify = require('gulp-notify')
 const d_sass = require('gulp-dart-sass');
 const autoprefixer = require('gulp-autoprefixer')
 const sourcemap = require('gulp-sourcemaps')
+const server = require('gulp-webserver')
 /* common */
 const path = {
   src: 'src',
   dist: 'dist'
 }
+gulp.task("web", function() {
+  return gulp.src(path.dist)
+  .pipe(server({
+  open: true,
+  port: 3000
+  }));
+  });
 /* HTML */
 const json = JSON.parse(fs.readFileSync(path.src + '/_data/_data.json'))
 gulp.task('ejs', ()=>{
@@ -35,7 +43,7 @@ gulp.task('style', (done)=>{
   }))
   .pipe(gulp.dest(path.dist + '/css'))
   .pipe(sourcemap.write('_maps'))
-  .pipe(gulp.dest(path.dist))
+  .pipe(gulp.dest(path.dist + '/css'))
   done();
 })
 gulp.task('default', gulp.series('ejs', 'style'))

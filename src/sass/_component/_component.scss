@@ -29,7 +29,6 @@ $ff-yu: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Med
 .p-label_cell {
   display: table-cell;
 }
-​
 .p-label_ttl {
   display: block;
   font-size: 0.875rem;
@@ -38,7 +37,6 @@ $ff-yu: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Med
   line-height: 1.2143;
   margin-bottom: 8px;
 }
-​
 .p-label_txt {
   display: block;
   font-size: 0.75rem;
@@ -48,7 +46,6 @@ $ff-yu: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Med
     color: #D25B8D;
   }
 }
-​
 .p-label-ico {
   $ico: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAS1BMVEUAAADMysvMysvPz8/MycvMysvMysrNysrPysrPz8/MysrNy8vMycrLysrMysrMysv////l5OX29fXz8vLc2tvV1NTV09Tm5eXi4eJnb1xZAAAAD3RSTlMAgMAQ4PCgYDAgn3DQz5AQX6WzAAAA+klEQVQ4y42VW3LDIAxFedgY/MgFO467/5U2nUmLQFDr/HJm7ggkoUq8NmYDNmMWr7qEeQBhmENTsxoMbbk3jWgwTrWn0UGXsTO6zDSeetxkubfpE274VGTHO3G0jeBnOmI80pOHBxBee/ywv0AIb9EhkyIhIePe4kC9gi/y7kp5khsrSLqnpey1uOezRZlcb2Tk2g0RExdTFkktBxcP/LIp/BEb5FOxKI1excXIr2cRXjh9wrMWT/KE0qao2uzqeHjUjXvmxj1BCI1RuH5G4WKjIB8u+bjKF0BZOcfRJeX+8axw7YkXqXw1c4Irl/0jqC5+MWYFVv59fAPixUpLRnN+7gAAAABJRU5ErkJggg==";
   width: 36px;
@@ -56,16 +53,11 @@ $ff-yu: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Med
   background: url($ico) no-repeat left top;
   background-size: 20px;
 }
-​
 input:checked + .p-label .p-label-ico {
   $ico-checked: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAASFBMVEUAAABCwadBwaZBwadAv69BwKdBwKdCwqdAv6VAv6dBwqZBwKdBwKZCwaZCwaf///+g4NPz+/rb8+7Q8OlkzLd81MKU3M191ML7yn/TAAAADnRSTlMAgMCgEODwYDAgcNDPkF1+lHQAAADhSURBVDjLjZXbEoQgDEOh3kDdeF///0/3YR2tFMecVzMTA21wd4IX6YFepA3ukVhUUFRFzMpKD4Mvra6pkaFuUp3HA/5uW+CRQttrnVUSvol7gxeORGWNF+oyY7yNyzQt42bNIxTrPBzMKxQxSTwOijFJXiW6i6+6d+eC8h0SlHvQUeZUOOOkdXLlHQxXdnFi/jCbR1SWxQqX82PvcDJZ4YQTWshad3QY/nha8sDpK2SHwoxZXocPPbh2Ffb/KuzQeHq52HVlC4CtFLqkyNpji5StZqrsP9E9ElqRDujs8/EDfkFFjKswTf8AAAAASUVORK5CYII=";
   background: url($ico-checked) no-repeat left top;
   background-size: 20px;
 }
-​
-/* modal input2 */
-//$trans_style: all .2s ease-in-out;
-//$trans_style02: all .2s .4s ease-in-out;
 .p-modal-overlay {
   position: fixed;
   top: 0;
@@ -136,18 +128,6 @@ input:checked + .p-label .p-label-ico {
     line-height: 1;
     @include mq() {
       font-size: 1.5rem;
-    }
-    &::after{
-      content: "";
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      height: 2px;
-      width: 100%;
-      background: url("/quick/hosho/entry/images/bg_input_ttl.png") left center / contain;
-      @include mq() {
-        bottom: 0;
-      }
     }
     &:not(:first-child) {
       margin-top: 15px;
@@ -264,6 +244,24 @@ select[data-input="job"] {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  // style
+  width: 300px;
+  max-width: 90%;
+  height: 58px;
+  font-size: 16px;
+  padding: 8px;
+  cursor: pointer;
+  outline: none;
+  background-image: none;
+  appearance: none;
+  border: 1px solid;
+  border-radius: 6px;
+  justify-content: flex-end;
+  @include mq(){
+    font-size: 14px;
+    width: 240px;
+    height: 40px;
+  }
 }
 .entered {
   .js-dummy-select {

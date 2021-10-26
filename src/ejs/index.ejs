@@ -2,7 +2,7 @@
 <%- include('./_modules/_data'); %>
 <%- include('./_modules/_modal_data'); %>
 <% const meta = getData() %>
-<% const modal_data = getModalData() %>
+<% const data = getModalData() %>
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
@@ -20,8 +20,34 @@
         <h1><%= meta.h1%></h1>
         <p>３で割り切れる数でFIZZ、５で割り切れる数でBUZZ、３でも５でも割り切れる数でFIZZBUZZとする。consoleに出力</p>
       </div>
+      <!-- form parts -->
+      <div>
+        <h2><%= meta.h2%></h2>
+        <p>業種を選択してください</p>
+        <select name="industry" class="form-select" data-input="industry">
+          <option value="">選択してください</option>
+          <% const aryGyoshu = data.aryGyoshu %>
+          <% for (let i =0; i < aryGyoshu.length; i++) { %>
+          <option value="<%- aryGyoshu[i][0] %>"><%- aryGyoshu[i][0] %></option>
+          <% } %>
+        </select>
+        <div class="form-select js-dummy-select">選択してください</div>
+      </div>
+      <div>
+        <p>職種を選択してください</p>
+        <select name="job" class="form-select" data-input="job">
+          <option value="">選択してください</option>
+          <% const aryShokushu = data.aryShokushu %>
+          <% for (let i =0; i < aryShokushu.length; i++) { %>
+          <option value="<%- aryShokushu[i][0] %>"><%- aryShokushu[i][0] %></option>
+          <% } %>
+        </select>
+        <div class="form-select js-dummy-select">選択してください</div>
+      </div>
+      <!-- end form parts -->
     </main>
-    <%- include('./_modules/_modal',{modal_data: modal_data}); %>
+    <%- include('./_modules/_modal',{data: data}); %>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script>
     (function(){
       var Fizzbuzz = function(s,f){
@@ -66,7 +92,7 @@
         show: function(t){
           var _ = this
           // alertなど随時書き換える
-          console.log(t)
+          //console.log(t)
         }
       }
 
@@ -92,6 +118,200 @@
         resizeFunc()
       })
     })()
+
+    // use jQuery
+    $(function(){
+      var step2LocalFunc = function(){
+      // modal
+      var LocalModal = function(){
+        if(!(this instanceof LocalModal)){
+          return new LocalModal()
+        }
+        var _ = this
+        _.$body = $('body')
+        _.$modal01 = $('#js-localModal [data-modal-id="industry"]')
+        _.$modal02 = $('#js-localModal [data-modal-id="job"]')
+        _.stateCls = {
+          wrap: 'is-modal-open',
+          content: 'is-modal-current',
+          body: 'is-body-fix'
+        },
+        pageY = ''
+        _.init()
+      }
+      LocalModal.prototype = {
+        init: function(){
+        },
+        open: function(e){
+          var _ = this
+          _.keepPosition()
+          _.switchCnt(e.currentTarget)
+          _.$body.addClass(_.stateCls.wrap)
+          setTimeout(function(){
+            _.$body.addClass(_.stateCls.body)
+          },400)
+        },
+        close: function(){
+          var _ = this
+          _.$body.removeClass(_.stateCls.wrap)
+          _.$body.removeClass(_.stateCls.body)
+          _.$modal01.removeClass(_.stateCls.content)
+          _.$modal02.removeClass(_.stateCls.content)
+          window.scrollTo(0,_.pageY)
+        },
+        switchCnt: function(t){
+          var _ = this,
+          id = $(t).siblings('select').data('input'),
+          $cnt =
+          id == 'industry'? _.$modal01:
+          id == 'job'? _.$modal02:
+          false;
+          $cnt.addClass(_.stateCls.content)
+        },
+        keepPosition: function(){
+          var _ = this
+          _.pageY = window.pageYOffset
+        }
+      }
+      // modal end
+
+      // select 
+      var SelectLabel = function(){
+        if(!(this instanceof SelectLabel)){
+          return new SelectLabel()
+        }
+        var _ = this
+        _.$target = '' // select要素
+        _.init()
+      }
+      SelectLabel.prototype = {
+        init: function(){
+          var _ = this
+        },
+        get: function(e){
+          var _ = this,
+          o = {
+            v: e.currentTarget.value,
+            n: e.currentTarget.name,
+            text: $(e.currentTarget).data('text')
+          }
+          return o
+        },
+        set: function(e){
+          var _ = this,
+          o = _.get(e),
+          v = o.v,
+          n = o.n,
+          text = o.text
+          // form option 指定
+          _.$target.val(v)
+          // validateのため changeを実行
+          _.$target.trigger('change')
+          // js-dummy-selectのtext変更
+          _.changeTxt(text)
+          //debug
+          console.log(_.$target.children("option:selected").val(),_.$target.children("option:selected").text())
+        },
+        getTarget: function(e){
+          var _ = this,
+          d = $(e.currentTarget).siblings('select').data('input')
+          // change用にselect要素の指定
+          _.$target = $(e.currentTarget).siblings('select[data-input="'+ d +'"]')
+        },
+        changeTxt: function(v){
+          var _ = this
+          _.$target.siblings('.js-dummy-select').text(v)
+        }
+      }
+      // select end
+
+      // input
+      var InputInModal = function(id){
+        if(!(this instanceof InputInModal)){
+          return new InputInModal(id)
+        }
+        var _ = this
+        _.id = id
+        _.options = []
+        _.$container = ''
+        _.init()
+        _.creatInput()
+      }
+      InputInModal.prototype = {
+        init: function(){
+          var _ = this
+          var id = _.id
+          var op = ""
+          var ary_elm = $('select[name="'+id+'"] option')
+          $.each(ary_elm, function(index,value){
+            // 選択してください を除外
+            if(value.value.length > 0){
+              op = {}
+              // select option のvalue とinnerTextを格納
+              op.value = value.value
+              op.text = value.text
+              _.options.push(op)
+            }
+          })
+          // debug
+          //console.log(_.options)
+          _.$container =
+          id == 'industry'? s_modal.$modal01:
+          id == 'job'? s_modal.$modal02:
+          false;
+        },
+        creatInput: function(){
+          var _ = this
+          var id = _.id
+          var elm = ""
+          var text = ""
+          var num = _.options.length
+          var _name =
+          id == 'industry'? 'gyoshu':
+          id == 'job'? 'shokushu':
+          false;
+          for (var i = 0; i < num; i++){
+            elm = document.createElement("input")
+            elm.type = "radio"
+            elm.name = _name
+            elm.id = _name + i
+            elm.className = "p-input"
+            elm.value = _.options[i].value
+            text = _.options[i].text
+            elm.setAttribute("data-text",text)
+            // CSSセレクタで input + label 指定中
+            _.$container.find(".p-label-wrap").eq(i).find(".p-label").before(elm)
+            // modal label text変更
+            _.$container.find(".p-label-wrap").eq(i).find(".p-label").find(".p-label_ttl").text(text)
+          }
+        }
+      }
+      //input end
+      var s_modal = new LocalModal()
+      var s_label = new SelectLabel()
+      var input_modal01 = new InputInModal("industry")
+      var input_modal02 = new InputInModal("job")
+      //on click
+      $('.js-dummy-select').on('click', function(e){
+        s_label.getTarget(e)
+        s_modal.open(e)
+      })
+      $('#js-localModal,#js-localModal button').on('click', function(e){
+        s_modal.close()
+      })
+      $('#js-localModal .p-modal_body').on('click', function(e){
+        e.stopPropagation();
+      })
+      //on change
+      $('#js-localModal .p-input').on('change', function(e){
+        s_label.set(e)
+        setTimeout(function(){
+          s_modal.close()
+        },300)
+      })
+      }
+      step2LocalFunc();
+    })
     </script>
   </body>
 </html>
